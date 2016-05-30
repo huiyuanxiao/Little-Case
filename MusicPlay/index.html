@@ -1,0 +1,236 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>音乐播放器</title>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+#nav{
+	width:960px;
+	height:250px;
+	background:url(音乐播放器/10-8/images/banner_bg.jpg);
+	margin:100px auto 0;
+	position:relative;
+}
+#nav ul li:nth-child(1){
+	top:10px;
+	left:50px;
+}
+#nav ul li:nth-child(2){
+	top:90px;
+	left:150px;
+}
+#nav ul li:nth-child(3){
+	top:65px;
+	left:308px;
+}
+#nav ul li:nth-child(4){
+	top:20px;
+	left:474px;
+}
+#nav ul li:nth-child(5){
+	top:160px;
+	left:585px;
+}
+#nav ul li{
+	list-style:none;
+	position:absolute;
+}
+#nav ul li img{
+	border-radius:50%;
+}
+#but{
+	width:616px;
+	height:116px;
+	background:#000;
+	position:fixed;
+	left:0;
+	bottom:50px;
+}
+#but .pic{
+	width:90px;
+	height:90px;
+	margin:13px 10px;
+	float:left;
+}
+#but .text{
+	width:150px;
+	height:90px;
+	margin:13px 10px;
+	float:left;
+	color:#fff;
+	margin:13px 0px;
+	line-height:90px;
+	text-align:center;
+	font-family:微软雅黑;
+	font-size:14px;
+	font-weight:bold;
+}
+#but .m_but{
+	width:150px;
+	height:90px;
+	margin:13px 0px;
+	float:left;
+}
+#but .m_but a{
+	display:block;
+}
+#but .m_but a.prev{
+	width:24px;
+	height:24px;
+	margin-left:10px;
+	margin-top:30px;
+	background:url(音乐播放器/10-8/images/player_bg.png) -75px -2px;
+	float:left;
+}
+#but .m_but a.prev:hover{
+	background:url(音乐播放器/10-8/images/player_bg.png) -75px -34px;
+}
+#but .m_but a.play{
+	width:30px;
+	height:40px;
+	margin-left:10px;
+	margin-top:22px;
+	background:url(音乐播放器/10-8/images/player_bg.png) -110px -2px;
+	float:left;
+}
+#but .m_but a.play:hover{
+	background:url(音乐播放器/10-8/images/player_bg.png) -110px -43px;
+}
+#but .m_but a.pause{
+	width:30px;
+	height:40px;
+	margin-left:10px;
+	margin-top:22px;
+	background:url(音乐播放器/10-8/images/player_bg.png) -295px -90px;
+	float:left;
+}
+#but .m_but a.pause:hover{
+	background:url(音乐播放器/10-8/images/player_bg.png) -340px -90px;
+}
+#but .m_but a.next{
+	width:24px;
+	height:24px;
+	background:url(音乐播放器/10-8/images/player_bg.png) -153px -2px;
+	float:left;
+	margin-left:10px;
+	margin-top:30px;
+}
+#but .m_but a.next:hover{
+	background:url(音乐播放器/10-8/images/player_bg.png)-153px -34px;
+}
+#but .close{
+	width:23px;
+	height:116px;
+	background:url(音乐播放器/10-8/images/player_bg.png);
+	float:right;
+}
+ #but .open{
+	background:url(音乐播放器/10-8/images/player_bg.png) -22px 0px;
+}
+</style>
+</head>
+
+<body>
+<div id="nav">
+<ul>
+<li mdar="音乐播放器/10-8/mp3/1.mp3"><img src="音乐播放器/10-8/images/1.jpg" width="65px" title="烛光里的妈妈" /></li>
+<li mdar="音乐播放器/10-8/mp3/2.mp3"><img src="音乐播放器/10-8/images/2.jpg" width="85px" title="当你老了" /></li>
+<li mdar="音乐播放器/10-8/mp3/3.mp3"><img src="音乐播放器/10-8/images/3.jpg"  width="105px" title="母亲"/></li>
+<li mdar="音乐播放器/10-8/mp3/4.mp3"><img src="音乐播放器/10-8/images/4.jpg" width="85px"  title="相亲相爱一家人"/></li>
+<li mdar="音乐播放器/10-8/mp3/5.mp3"><img src="音乐播放器/10-8/images/5.jpg" width="65px" title="雄心壮志" /></li>
+</div>
+<div id="but">
+<div class="pic"><img src="音乐播放器/10-8/images/1.jpg" width="90px" /></div>
+<div class="text">烛光里的妈妈</div>
+<div class="m_but">
+<a href="javascript:void(0)" class="prev"></a>
+<a href="javascript:void(0)" class="play"></a>
+<a href="javascript:void(0)" class="next"></a>
+</div>
+<div class="close"></div>
+</div>
+<audio src="音乐播放器/10-8/mp3/1.mp3" id="m_audio"></audio>
+<script type="text/javascript" src="音乐播放器/10-8/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+ var audio=$("#m_audio").get(0);
+ //audio.play();
+// audio.pause();
+var kg=0;//开关
+var cp=0;
+$("#nav ul li").click(function(){
+	index=$(this).index();
+	//获取音乐路径
+	var m_src=$("this").attr("mdar");
+	var p_src=$("this").find("img").attr("src");
+	var text=$("this").find("img").attr("title");
+	$("#but .pic img").attr("src",p_src);
+	$("#but .text").html(text);
+	$("#but .m_but a.play").addClass("pause");
+	//把音乐路径赋值
+	audio.src=m_src;
+	audio.play();
+	kg=1;
+	});
+	$("#but .m_but a.play").click(function(){
+		if(kg==0){
+			audio.play();
+			$(this).addClass("pause");
+			kg=1;
+			}else{
+		audio.pause();
+		$(this).removeClass("pause");
+		kg=0;
+			}
+		});
+		var index=0;
+		$("#but .m_but a.prev").click(function(){
+			index++;
+			if(index>4){
+				index=0;
+			}
+			var m_src=$("#nav ul li").eq(index).attr("mdar");
+	        var p_src=$("#nav ul li").find("img").eq(index).attr("src");
+	        var text=$("#nav ul li").find("img").eq(index).attr("title");
+	        $("#but .pic img").attr("src",p_src);
+	        $("#but .text").html(text);
+	       $("#but .m_but a.play").addClass("pause");
+	       //把音乐路径赋值
+	       audio.src=m_src;
+	        audio.play();
+	       kg=1;
+});
+	$("#but .m_but a.next").click(function(){
+			index--;
+			if(index<0){
+				index=4;
+			}
+			var m_src=$("#nav ul li").eq(index).attr("mdar");
+	        var p_src=$("#nav ul li").find("img").eq(index).attr("src");
+	        var text=$("#nav ul li").find("img").eq(index).attr("title");
+	        $("#but .pic img").attr("src",p_src);
+	        $("#but .text").html(text);
+	       $("#but .m_but a.play").addClass("pause");
+	       //把音乐路径赋值
+	       audio.src=m_src;
+	        audio.play();
+	       kg=1;
+});
+    $("#but .close").click(function(){
+		if(cp==0){
+	$("#but").animate({left:"-535px"},500);
+	$(this).addClass("open");
+	cp=1;
+		}else{
+			$("#but").animate({left:"0px"},500);
+	        $(this).removeClass("open");
+	        cp=0;
+	}
+	})
+</script>
+</body>
+</html>
