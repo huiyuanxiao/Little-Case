@@ -23,4 +23,6 @@ RightNav:企业右侧导航栏
 
 YoukuPageUp：优酷弹出层，鼠标经过时，文字弹出
 
+OneStore：一号店轮播，包括背景颜色的变化
+
 
