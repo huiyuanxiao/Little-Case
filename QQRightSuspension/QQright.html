@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>QQ右侧悬浮</title>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+.kf{
+	width:158px;
+	height:220px;
+	position:fixed;
+	float:right;
+	top:150px;
+	right:0px;
+}
+.kf .wx{
+	width:158px;
+	height:220px;
+	border-radius:10px;
+	position:absolute;
+	top:0px;
+	left:-20px;
+	
+}
+.kf .wx img{
+	display:block;
+}
+.kf .wx .wx_pic{
+	width:158px;
+	height:162px;
+	background:url(QQ右侧悬浮/images/bg.jpg);
+	padding-top:10px;
+}
+.kf .wx .wx_pic img{
+	margin:0 auto;
+}
+.kf .wx .wx_pic a{display:block; width:140px; height:30px; background:url(QQ右侧悬浮/images/qq.jpg) no-repeat 10px 50%;
+                  margin:10px auto 0px; border-bottom:1px solid #fff; color:#fff; font-size:12px; line-height:30px;
+				  text-indent:35px; text-decoration:none;}
+.kf .close{width:33px; height:180px; position:absolute; top:0px; right:-33px;}
+</style>
+</head>
+
+<body>
+<div class="kf">
+  <div class="wx">
+    <img src="QQ右侧悬浮/images/top.png" />
+    <div class="wx_pic">
+    <img src="QQ右侧悬浮/images/ewm.jpg" width="100px" />
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=635900003&site=qq&menu=yes" target="_blank">报名：63591111</a>
+    </div>
+    <img class="c_close" src="QQ右侧悬浮/images/bot.png" />
+  </div>
+  <div class="close">
+  <img src="QQ右侧悬浮/images/small.png" />
+  </div>
+</div>
+<script type="text/javascript" src="QQ右侧悬浮/js/jquery.js"></script>
+<script type="text/javascript">
+      $(".kf .c_close").click(function(){
+		  $(".wx").animate({left:"158px"},500,function(){
+			  $(".close").animate({right:"20px"},500)});
+	  });
+	  $(".kf .close").click(function(){
+		  $(this).animate({right:"-33px"},500,function(){
+			  $(".wx").animate({left:"-20px"},500)});
+	  });
+</script>
+</body>
+</html>
