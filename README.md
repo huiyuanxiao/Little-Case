@@ -12,3 +12,7 @@ BaiduSinglePage：百度单页切换
 BaiduMusic:音乐滚动，单页滚动播放
 
 H5-Seamless scrolling：H5无缝衔接滚动条
+
+ShopingCard:加入购物车实现
+
+NavSwitch：导航栏切换
