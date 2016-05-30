@@ -1,0 +1,35 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10-6 H5无缝滚动</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#main{width:960px; height:270px; margin:100px auto; position:relative; overflow:hidden;}
+#main ul{ width:1920px;position:absolute; left:0px;top:0px; -webkit-animation:play 10s linear;/*执行动画*/
+          -webkit-animation-iteration-count:infinite;/*规定动画次数*/}
+#main ul li{width:230px; height:270px; list-style:none; float:left; margin-right:10px;}
+@-webkit-keyframes play{
+	0%{left:0;}
+	100%{left:-960px;}
+	}
+#main ul:hover{-webkit-animation:paused;}
+</style>
+</head>
+
+<body>
+<div id="main">
+  <ul>
+  <li><img src="10-6-H5无缝滚动/images/1.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/2.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/3.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/4.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/1.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/2.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/3.jpg" /></li>
+  <li><img src="10-6-H5无缝滚动/images/4.jpg" /></li>
+  </ul>
+</div>
+</body>
+</html>
