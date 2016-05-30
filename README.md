@@ -16,3 +16,5 @@ H5-Seamless scrolling：H5无缝衔接滚动条
 ShopingCard:加入购物车实现
 
 NavSwitch：导航栏切换
+
+StaireNav:楼梯式导航
