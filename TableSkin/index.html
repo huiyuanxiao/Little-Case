@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>桌面换肤</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+body{background-image:url("桌面换肤/images/1.jpg");}
+#Muse{width:200px; background-color:#fff; position:relative; top:10px; left:10px; display:none;}
+#Muse ul li{width:200px; height:40px;list-style:none;}
+#Muse ul li .pic{margin-left:30px; margin-top:10px; float:left;}
+#Muse ul li p{float:left; line-height:40px; margin-left:10px;}
+#Muse ul li.hover{background:#00cccc;}
+.con{width:730px; height:360px; background:rgba(0,0,0,0.5); margin:100px auto; display:none;}
+.con .title{width:730px; height:45px; background:url(桌面换肤/images/title_bg.jpg);
+color:#fff; font-size:20px; font-family:微软雅黑; line-height:45px; font-weight:600;
+text-indent:20px;}
+.con .title span{display:block; width:27px; height:27px; background:url(桌面换肤/images/close.png); float:right;
+margin-top:10px; margin-right:30px;}
+.con ul li{border:5px solid #fff; width:200px; height:125px;float:left; list-style:none; margin:10px 15px;}
+</style>
+</head>
+
+<body>
+   <div id="Muse">
+       <ul>
+          <li class="hover">
+               <div class="pic"><img src="桌面换肤/images/ico1.jpg" /></div>
+               <p>应用程序</p>
+          </li>
+          <li>
+               <div class="pic"><img src="桌面换肤/images/ico2.jpg" /></div>
+               <p>获取课程</p>
+           </li>
+          <li>
+               <div class="pic"><img src="桌面换肤/images/ico3.jpg" /></div>
+               <p>添加笔记</p>
+           </li>
+          <li>
+               <div class="pic"><img src="桌面换肤/images/ico4.jpg" /></div>
+               <p>刷新</p>
+          </li>
+          <li> 
+               <div class="pic"><img src="桌面换肤/images/ico5.jpg" /></div>
+               <p>上传资料</p>
+          </li>
+          <li> 
+               <div class="pic"><img src="桌面换肤/images/ico6.jpg" /></div>
+               <p>背景颜色</p>
+          </li>
+          <li>
+                <div class="pic"><img src="桌面换肤/images/ico7.jpg" /></div>
+                <p>注销</p>
+          </li>
+        </ul>  
+   </div>
+   <div class="con">
+     <div class="title">桌面系统<span></span></div>
+     <ul>
+        <li><img src="桌面换肤/images/s_1.jpg" /></li>
+        <li><img src="桌面换肤/images/s_2.jpg" /></li>
+        <li><img src="桌面换肤/images/s_3.jpg" /></li>
+        <li><img src="桌面换肤/images/s_4.jpg" /></li>
+        <li><img src="桌面换肤/images/s_5.jpg" /></li>
+        <li><img src="桌面换肤/images/s_6.jpg" /></li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="桌面换肤/js/jquery.js"></script>
+    <script type="text/javascript">
+	//禁止浏览器的右键功能
+	    document.oncontextmenu=function(){
+			return false;
+		}
+		//鼠标按下事件
+		$(document).mousedown(function(e){
+			var key=e.which;//1左键2中键3右键
+			//当右键的时候执行
+			if(key==3){
+				var _left=e.clientX;
+				var _top=e.clientY;//获取鼠标距离
+				$("#Muse").show().css({left:_left,top:_top});
+			}
+		});
+		//添加背景颜色
+		$("#Muse ul li").hover(function(){
+			$(this).addClass("hover").siblings().removeClass("hover");
+		});
+		$("#Muse ul li").click(function(){	
+		    var _index=$(this).index();
+			if(_index==5){
+			$(".con").show();
+			}
+		});
+		$(document).click(function(){
+		
+			$("#Muse").hide();
+		});
+		$(".con ul li").click(function(){
+			var _img=$(this).index()
+			$("body").css({"background-image":"url('桌面换肤/images/"+(_img+1)+".jpg')"});
+		});
+		$(".con .title span").click(function(){
+			$(".con").hide();
+		});
+    </script>
+</body>
+</html>
