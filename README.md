@@ -25,4 +25,16 @@ YoukuPageUp：优酷弹出层，鼠标经过时，文字弹出
 
 OneStore：一号店轮播，包括背景颜色的变化
 
+360Demo:图片切换，大小一起变化
+
+360Secure： 单页滚动，符号也跟着滚动
+
+QQ相册：QQ中图片放大显示
+
+Baidu Skin：桌面换肤
+
+MusiPlay：音乐播放器
+
+TableSkin：右键单击，使桌面换肤
+
 
