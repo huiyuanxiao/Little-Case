@@ -1,0 +1,114 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10-10土豆弹出层</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#web{width:1000px; height:400px; margin:0 auto;}
+#web ul li{list-style:none; width:210px; height:120px; float:left; margin:5px; position:relative; overflow:hidden;}
+#web ul li .con{width:190px; height:100px; background:rgba(0,0,0,0.5); font-family:微软雅黑;
+                position:absolute; top:0px; left:0px; padding:10px; display:none;}
+#web ul li .con p.title{color:#fff; font-size:12px; font-family:微软雅黑; line-height:20px;}
+#web ul li .con p.bc{color:#c8c8c8; font-size:12px; line-height:20px; font-family:微软雅黑;}
+#web ul li .con p.but{background:#f60; width:60px; height:25px; color:#fff; line-height:25px; text-align:center;
+                      border-radius:5px; font-size:12px; margin:10px 0px 0px 130px;}
+#web ul li p.text{position:absolute; width:100%; height:30px; bottom:-30px; left:0px;
+                  background:rgba(0,0,0,0.5); color:#fff; line-height:30px; font-size:12px; text-indent:10px;}
+</style>
+</head>
+
+<body>
+<div id="web">
+     <ul>
+         <li>
+             <img src="10-10土豆弹出层/10-10/images/pic1.jpg" />
+             <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>  
+              <img src="10-10土豆弹出层/10-10/images/pic2.jpg" />
+               <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>  
+             <img src="10-10土豆弹出层/10-10/images/pic3.jpg" />
+              <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>
+             <img src="10-10土豆弹出层/10-10/images/pic4.jpg" />
+              <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>
+             <img src="10-10土豆弹出层/10-10/images/pic5.jpg" />
+              <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>
+             <img src="10-10土豆弹出层/10-10/images/pic6.jpg" />
+              <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>
+             <img src="10-10土豆弹出层/10-10/images/pic7.jpg" />
+              <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+         <li>
+              <img src="10-10土豆弹出层/10-10/images/pic8.jpg" />
+               <div class="con"> 
+                  <p class="title">数码世界产生异常并与现实世界的连接发生紊乱</p>
+                  <p class="bc">27.26万次播放 10万次评论</p>
+                  <p class="but">立即播放</p>
+             </div>
+             <p class="text">数码宝贝</p>
+         </li>
+     </ul>
+</div>
+<script type="text/javascript" src="10-10土豆弹出层/10-10/js/jquery.js"></script>
+<script type="text/javascript">
+       $("#web ul li").hover(function(){
+		   var _this=$(this);
+		   t=setTimeout(function(){
+			   _this.find(".con").fadeIn();
+			   _this.find("p.text").animate({bottom:0},500);
+			   },300);
+	   },function(){
+		   clearTimeout(t);
+		   $(this).find(".con").fadeOut();
+		   $(this).find("p.text").animate({bottom:"-30px"},500);
+	   });
+</script>
+</body>
+</html>
