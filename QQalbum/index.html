@@ -1,0 +1,80 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>腾讯QQ空间相册展示效果</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#xc{width:984px; height:615px; margin:10px auto;}
+#xc img{float:left; margin:5px 10px;/*上下 左右*/ border:4px solid #fff;
+         box-shadow:0px 0px 5px #666;/*水平偏移  垂直偏移 模糊程度 颜色*/}
+.gray{width:100%; height:100%; background:rgba(0,0,0,0.6);/*透明度*/ position:fixed;
+      top:0px; left:0px;  display:none;}
+.showImg{width:650px; height:406px; position:absolute; top:120px; left:25%;
+          border:10px solid #fff; display:none;}
+.showImg .prev{position:absolute; top:170px; left:-80px;}
+.showImg .next{position:absolute; top:170px; right:-80px;}
+</style>
+</head>
+
+<body>
+ <div id="xc">
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big1.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big2.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big3.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big4.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big5.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big6.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big7.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big8.jpg" style="width:300px; height:181px;" />
+  <img src="10-20 腾讯QQ空间相册展示效果/images/big9.jpg" style="width:300px; height:181px;" />
+  </div>
+  <!--灰色图片的遮罩层-->
+  <div class="gray"></div>
+  <!--显示图片-->
+  <div class="showImg">
+      <img src="10-20 腾讯QQ空间相册展示效果/images/dirl.png" class="prev" />
+      <img class="next" src="10-20 腾讯QQ空间相册展示效果/images/dirr.png" />
+      <img class="bigImg" src="10-20 腾讯QQ空间相册展示效果/images/big1.jpg" />
+  </div>
+  <script type="text/javascript" src="10-20 腾讯QQ空间相册展示效果/js/jquery.js"></script>
+  <script type="text/javascript">
+  var _index=0;//定义变量，存放点击的图片
+  var _bigSrc="";
+     $("#xc img").click(function(){
+		 _index=$(this).index();//本身 当前点击的 索引 下标 序列号从0开始
+		 //document.title=_index;
+		 _bigSrc=$(this).attr("src");//属性 获取img地址
+		 $(".gray").show();//显示灰色遮罩层
+		 $(".showImg").show();
+		 $(".showImg .bigImg").attr("src",_bigSrc);//把获取到的地址赋给显示层的区域 img
+	 });
+	 //点击灰色遮罩层隐藏
+	 $(".gray").click(function(){
+		 $(this).hide();
+		 $(".showImg").hide();
+	 });
+	 //左边切换的按钮
+	 $(".showImg .prev").click(function(){
+		 _index--;
+		 if(_index < 0)
+		 {
+			 _index=8;
+		 }
+		 _bigSrc=$("#xc img").eq(_index).attr("src");//查找位置 获取图片的地址，赋值给大图片
+		 $(".showImg .bigImg").attr("src",_bigSrc);
+		 
+	});
+	$(".showImg .next").click(function(){
+		_index++;
+		if(_index>8)
+		{
+			_index=0;
+		}
+		_bigSrc=$("#xc img").eq(_index).attr("src");
+		$(".showImg .bigImg").attr("src",_bigSrc);
+	});
+  </script>
+</body>
+</html>
