@@ -1,0 +1,94 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2015 最新技术百度单页面开发</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#nav{width:100%; height:910px; position:relative; overflow:hidden;}
+#nav .con{width:100%; height:910px; position:relative;}
+#nav .con ul li{width:100%; height:910px; position:absolute; top:0; left:100%; list-style:none;}
+#nav .con ul li img.title{margin:120px auto 20px; display:block;}
+#nav .con ul li img.home{margin:0 auto; display:block;}
+#nav .con ul li .lx{width:350px; height:110px; margin:0 auto; background:url(9-23js课堂/images/qrcode.png) no-repeat right;
+                     background-size:auto 80%;/*宽度 高度*/}
+#nav .con ul li a{background:#fff; display:block; margin-bottom:5px; line-height:50px; width:250px; text-align:center;
+                  color:#a04f00; font-weight:bold; text-decoration:none; font-size:20px; font-family:微软雅黑; 
+				  border-radius:5px;}
+#nav .but{width:750px; height:102px; position:absolute; top:655px; left:50%;
+         margin-left:-375px;}
+#nav .but .bar{width:780px; height:2px; background:url(9-23js课堂/images/dot.png); margin-top:24px;
+                 margin-left:-30px;}
+#nav .but .bar p{width:150px; height:2px; background:#fff;}
+#nav .but ul{width:750px; height:102px; position:absolute; top:0px; left:0px;}
+#nav .but ul li{ width:100px;list-style:none; float:left; margin-left:65px; text-align:center; color:#fff;}
+#nav .but ul li img{display:block; margin:0 auto;}
+</style>
+</head>
+
+<body>
+  <div id="nav">
+       <div class="con">
+            <ul>
+            <li style="left:0;background:url(9-23js课堂/images/bg1.jpg) center">
+                <img class="title" src="9-23js课堂/images/title.png" />
+                <img class="home" src="9-23js课堂/images/home_desc.png" />
+                <div class="lx">
+                     <a href="">Android版下载</a>
+                     <a href="">IOS版下载</a>
+                </div>
+                
+            </li>
+            <li style="background:url(9-23js课堂/images/bg2.png) center"></li>
+            <li style="background:url(9-23js课堂/images/bg3.png) center"></li>
+            <li style="background:url(9-23js课堂/images/bg4.png) center"></li>
+            </ul>
+       </div>
+       <div class="but">
+            <div class="bar">
+               <p></p>
+            </div>
+            <ul>
+            <li style="left:65px;"><img src="9-23js课堂/images/0.png" />首页</li>
+            <li style="left:270px;"><img src="9-23js课堂/images/nav1.png" />微任务介绍</li>
+            <li style="left:405px;"><img src="9-23js课堂/images/nav2.png" />精美礼品</li>
+            <li style="left:540px;"><img src="9-23js课堂/images/nav3.png" />意见反馈</li>
+            </ul>
+       </div>
+  </div>
+  <script type="text/javascript" src="9-23js课堂/js/jquery.js"></script>
+  <script type="text/javascript">
+  var d=0;//当前变量
+  var z=0;//之前变量
+  var s=0;//长度
+  //点击事件
+  $("#nav .but ul li").click(function(){
+	  z=d;
+	  d=$(this).index();//获取下标
+	 
+	/* if(z!=d){
+		 $("#nav .con ul li").eq(d).animate({left:"0"},500);
+	     $("#nav .con ul li").eq(z).animate({left:"-100%"},500);
+	 }*/
+	 if(d>z){ 
+	     $("#nav .con ul li").eq(z).animate({left:"-100%"},500);
+		 $("#nav .con ul li").eq(d).css({left:"100%"});
+		 $("#nav .con ul li").eq(d).animate({left:"0"},500);
+	    
+	 }else if(d<z){ 
+	     $("#nav .con ul li").eq(z).animate({left:"100%"},500);
+		 $("#nav .con ul li").eq(d).css({left:"-100%"});
+		 $("#nav .con ul li").eq(d).animate({left:"0"},500);
+	    
+	}
+	 $(this).find("img").attr("src","9-23js课堂/images/"+d+".png"); 
+	 if(d!=z){
+		  $("#nav .but ul li").eq(z).find("img").attr("src","9-23js课堂/images/nav"+z+".png");
+	 }
+	 s=160+d*160;
+	 $("#nav .but .bar p").animate({width:s+"px"},500);
+  });
+  </script>
+</body>
+</html>
