@@ -1,0 +1,112 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>11-31号店轮播</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#banner{width:100%; height:398px;}
+#banner .banner_img{width:100%; height:398px;position:relative;}
+#banner .banner_img ul li{list-style:none; height:398px; width:100%; position:absolute; left:0px; top:0px; display:none;}
+#banner .banner_img ul li a.content{width:750px; margin:0 auto; display:block;}
+.content{width:750px; height:398px; margin:0px auto;}
+#banner .content .box{position:absolute; top:370px; left:40%; width:100%; height:398px;}
+#banner .content .box ul li{width:15px; height:15px; background:#ccc; list-style:none; float:left; margin-left:15px;}
+#banner .content .box ul li.curr{background:red;}
+#banner .content .btn{width:45px; height:80px; position:absolute; top:145px; background:rgba(255,255,255,0.4) url("11-3 大型企业内部技术-一号店首页轮播图/images/index_sprite.png");}
+#banner .content .prev{background-position:0px -220px; left:200px;}
+#banner .content .next{background-position:-80px -220px; right:200px;}
+</style>
+</head>
+
+<body>
+ <div id="banner">
+      <div class="banner_img">
+           <ul>
+               <li style="background:rgb(0,153,255);display:block;">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/1.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(3,46,119);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/2.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(242,231,224);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/3.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(25,192,122);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/4.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(1,192,211);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/5.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(117,73,24);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/6.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(240,240,242);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/7.jpg" />
+                   </a>
+               </li>
+               <li style="background:rgb(9,10,74);">
+                   <a href="#" class="content">
+                   <img src="11-3 大型企业内部技术-一号店首页轮播图/images/8.jpg" />
+                   </a>
+               </li>
+           </ul>
+      </div>
+      <div class="content">
+            <div class="box">
+                 <ul>
+                     <li class="curr"></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                 </ul>
+            </div>
+            <div class="btn prev"></div>
+            <div class="btn next"></div>
+      </div>
+ </div>
+ <script type="text/javascript" src="11-3 大型企业内部技术-一号店首页轮播图/js/jquery.js"></script>
+ <script type="text/javascript">
+     $("#banner .content .box ul li").hover(function(){
+	   _index=$(this).index();
+	   $(this).addClass("curr").siblings().removeClass("curr");
+	   $("#banner .banner_img ul li").eq(_index).fadeIn().siblings().fadeOut();
+   });
+   $(".next").click(function(){
+	   _index++;
+	   if(_index>7){
+		   _index=0
+		}
+	   $("#banner .content .box ul li").eq(_index).addClass("curr").siblings().removeClass("curr");
+	   $("#banner .banner_img ul li").eq(_index).fadeIn(500).siblings().fadeOut();
+	});
+	$(".prev").click(function(){
+		_index--;
+		if(_index<0){
+			_index=7;
+		}
+		$("#banner .content .box ul li").eq(_index).addClass("curr").siblings().removeClass("curr");
+	    $("#banner .banner_img ul li").eq(_index).fadeIn(500).siblings().fadeOut();
+	});
+	
+ </script>
+</body>
+</html>
