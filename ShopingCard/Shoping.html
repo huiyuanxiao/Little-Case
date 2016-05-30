@@ -1,0 +1,122 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10-7大型购物车</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#banner{width:100%; height:163px;
+ background:url("10-7大型天猫加入购物车（抛物线模式)/images/banner.jpg") no-repeat center center;}
+#prac{ width:990px; height:310px; margin:30px auto 0;/*上外边距  左右  下 */}
+#prac ul li{width:220px; height:310px; border:1px solid #ddd; list-style:none; float:left; margin:0 7px;}
+#prac ul li p.t1{font-size:12px; font-family:微软雅黑; color:#666; line-height:30px;}
+#prac ul li p.par font{color:#F00; font-weight:600;}
+#prac ul li p.par span{font-size:14px; display:block; width:80px; height:30px; float:right;
+            background:red; line-height:30px; color:#fff; text-align:center; border-radius:5px;
+			font-weight:600; cursor:pointer;}
+#gbox{width:260px; height:100%; background:red; position:fixed;/*固定定位  要不不显示高度 同时始终位置不变*/ top:0px; right:-220px;}
+#gbox .car{width:40px; height:100%; background:#000; float:left; position:relative;}
+#gbox .box{width:220px; height:100%; background:#ddd; float:right;}
+#gbox .car span{color:#fff; position:absolute; top:50%; cursor:pointer; left:0px; font-size:12px; width:12px; background:red; padding:14px;}
+#gbox .box dl{ padding:10px; height:60px; border-bottom:1px solid #fff;}
+#gbox .box dl dt{float:left; width:60px;}
+#gbox .box dl dd{float:right; width:120px;}
+#gbox .box dl dd.fist{font-size:12px; line-height:20px;}
+#gbox .box dl dd.two{font-size:14px; color:red;}
+.fly{width:50px; height:50px; border-radius:50px;}
+</style>
+
+</head>
+
+<body>
+  <div id="banner"></div>
+  <div id="prac">
+      <ul>
+          <li>
+              <img src="10-7大型天猫加入购物车（抛物线模式)/images/1.jpg" width="220px" height="220px" alt="美女" />
+              <p class="t1">2015夏季新品海澜之家男装正品1</p>
+              <p class="par"><font>￥193.0</font><span>加入购物车</span></p>
+          </li>
+          <li>
+              <img src="10-7大型天猫加入购物车（抛物线模式)/images/2.jpg" width="220px" height="220px" alt="美女"  />
+              <p class="t1">2015夏季新品海澜之家男装正品2</p>
+              <p class="par"><font>￥348.0</font><span>加入购物车</span></p>
+          </li>
+          <li>
+              <img src="10-7大型天猫加入购物车（抛物线模式)/images/3.jpg" width="220px" height="220px" alt="美女"  />
+              <p class="t1">2015夏季新品海澜之家男装正品3</p>
+              <p class="par"><font>￥299.0</font><span>加入购物车</span></p>
+          </li>
+          <li>
+              <img src="10-7大型天猫加入购物车（抛物线模式)/images/4.jpg" width="220px" height="220px" alt="美女"  />
+              <p class="t1">2015夏季新品海澜之家男装正品4</p>
+              <p class="par"><font>￥399.0</font><span>加入购物车</span></p>
+          </li>
+      </ul>
+  </div>
+  <div id="gbox">
+  <div class="car"><span>加入购物车</span></div>
+  <div class="box">
+  <!--定义列表-->
+       <!-- <dl>
+            <dt><img src="10-7大型天猫加入购物车（抛物线模式)/images/1.jpg" width="60px" height="60px" alt="" /></dt>
+            <dd class="fist"><p>2015夏季新品海澜之家男装正品1</dd>
+            <dd class="two">￥195.0</dd>
+        </dl>-->
+  </div>
+  </div>
+  <script type="text/javascript" src="10-7大型天猫加入购物车（抛物线模式)/jquery.js"></script>
+  <script type="text/javascript" src="10-7大型天猫加入购物车（抛物线模式)/jquery.fly.min.js"></script>
+  <script type="text/javascript">
+  //右栏购物车
+  var kg=0;//开关 全局变量
+  $("#gbox .car span").click(function(){
+	  if(kg==0){
+		   $("#gbox").animate({right:"0px"},500);
+		   kg=1;
+	  }else{
+		  $("#gbox").animate({right:"-220px"},500);
+		  kg=0;
+	  } 
+  });
+  $("#prac ul li p.par span").click(function(){
+	   var _img=$(this).parent().siblings("img").attr("src");//找到父元素 兄弟元素 img 获取SRC属性值
+	   var _text=$(this).parent().siblings("p.t1").html();//找到当前兄弟元素P 并且获取文本内容
+	   var money=$(this).siblings("font").html();
+	  $(".box").append("<dl><dt><img src='"+_img+"' width='60px' height='60px' /></dt><dd class='fist'>"+_text+"</dd> <dd class='two'>"+money+"</dd></dl>");
+	  add(event);
+  });
+  //抛物线
+  function add(event){
+	  var m_left = event.clientX;//鼠标位置
+	  var m_top=event.clientY;
+	  var g_left=$("#gbox .car span").offset().left;//购物车的位置
+	  var g_top=$("#gbox .car span").offset().top;
+	  var _this=$(event.target);//得到点击对象
+	  var src=_this.parent().siblings("img").attr("src");
+	  var flyer=$("<img src='"+src+"' class='fly'>");//创建对象
+	  flyer.fly({
+	    start:{
+		  left:m_let,
+		  top:m_top,
+	    },
+		end:{
+			left:g_left,
+			top:g_top,
+			width:20,
+			height:20
+	    },
+		onEnd:function(){
+			flyer.fadeOut("slow",function(){
+				$(this).remove();
+				
+			})
+	   },
+	  
+	  
+	  })
+  }
+  </script>
+</body>
+</html>
