@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10-5 图片集数遍滑过文字特效</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}/*兼容浏览器*/
+h1{text-align:center;}
+img{display:block;}
+#box{width:1255px; height:350px; margin:50px auto;}
+#box .left{width:235px; height:350px; float:left; margin-right:20px; overflow:hidden;/*超出文字隐藏*/ position:relative;}
+#box .left .top{ width:235px; height:350px;}
+.top h3,.bottom h3{ width:100%;font-size:14px; font-family:微软雅黑; font-weight:100; letter-spacing:0.8px; text-indent:20px; background:rgba(0,0,0,0.3);
+                   height:30px; color:#fff; line-height:30px; position:absolute; bottom:-30px; left:0px;}
+#box .middle{width:235px; height:350px; float:left; margin-right:20px; }
+#box .middle .top,#box .middle .bottom{width:235px; height:165px; margin-bottom:20px;overflow:hidden; position:relative;}
+#box .right{ width:490px; height:350px; float:left; overflow:hidden; position:relative;}
+</style>
+</head>
+
+<body>
+<h1>图片集图文展示效果</h1>
+<div id="box">
+   <div class="left">
+       <div class="top">
+          <img src="10-5 360图片集鼠标滑过文字特效/images/1.jpg" />
+          <h3> 彩虹王国  南非</h3>
+       </div>
+   </div>
+   <div class="middle">
+       <div class="top">
+           <img class="pic3" src="10-5 360图片集鼠标滑过文字特效/images/2.jpg" />
+          <h3 class="pic33">大半个月  大半个墨西哥</h3>
+       </div>
+       <div class="bottom">
+          <img class="pic4" src="10-5 360图片集鼠标滑过文字特效/images/3.jpg" />
+          <h3 class="pic44">美国西部无人行</h3>
+       </div>
+   </div>
+   <div class="middle">
+         <div class="top">
+           <img class="pic1" src="10-5 360图片集鼠标滑过文字特效/images/4.jpg" />
+           <h3 class="pic11">维托里亚纪念堂</h3>
+        </div>
+       <div class="bottom">
+          <img class="pic2" src="10-5 360图片集鼠标滑过文字特效/images/5.jpg" />
+          <h3 class="pic22">百花山--百草畔穿行</h3>
+       </div>
+   </div>
+   <div class="right">
+        <div class="top">
+          <img src="10-5 360图片集鼠标滑过文字特效/images/6.jpg" />
+          <h3>雷克雅未克图片</h3>
+       </div>
+   </div>
+</div>
+<script type="text/javascript" src="10-5 360图片集鼠标滑过文字特效/js/jquery.js"></script>
+<script type="text/ecmascript">
+       $(" .left .top img").hover(function(){
+		   $(".left .top h3").animate({bottom:"0px"});
+	    },function(){
+			$(" .left .top h3").animate({bottom:"-30px"});
+		});
+		$(".right .top img").hover(function(){
+			$(".right .top h3").animate({bottom:"0px"});
+		},function(){
+			$(".right .top h3").animate({bottom:"-30px"})
+		});
+		$(".middle .top .pic3").hover(function(){
+			$(".middle .top .pic33").animate({bottom:"0px"});
+		},function(){
+			$(".middle .top .pic33").animate({bottom:"-30px"});
+		});
+		$(".middle .bottom .pic4").hover(function(){
+			$(".middle .bottom .pic44").animate({bottom:"0px"});
+		},function(){
+			$(".middle .bottom .pic44").animate({bottom:"-30px"});
+		});
+		$(".middle .top .pic1").hover(function(){
+			$(".middle .top .pic11").animate({bottom:"0px"});
+		},function(){
+			$(".middle .top .pic11").animate({bottom:"-30px"});
+		});
+		$(".middle .bottom .pic2").hover(function(){
+			$(".middle .bottom .pic22").animate({bottom:"0px"});
+		},function(){
+			$(".middle .bottom .pic22").animate({bottom:"-30px"});
+		});
+		
+</script>
+</body>
+</html>
