@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10-31大型企业内部的技术右侧悬浮栏</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+body{background:url("file:///F|/2015-09/exsecse/10-31 大型企业内部技术--右侧悬浮菜单鼠标跟随特效/images/logo.jpg") top center;}
+#box{width:40px; height:600px; position:fixed; right:0px;}
+#box .top{height:146px; position:relative; }
+#box .top .show{position:absolute; width:190px; height:235px; left:-190px; top:0px; display:none;}
+#box .common_tools{width:40px;}
+#box .common_tools ul li{list-style:none; height:47px; position:relative; cursor:pointer; margin:8px 0px; background:url("10-31 大型企业内部技术--右侧悬浮菜单鼠标跟随特效/images/common-silder.png");}
+#box .common_tools ul li.c-q{background-position:-120px -94px;/*背景图片*/}
+#box .common_tools ul li.c-p{background-position:-120px -47px;}
+#box .common_tools ul li.c-k{background-position:-120px 0px;}
+#box .common_tools ul li.c-f{background-position:-80px -141px;}
+#box .common_tools ul li a{position:absolute;top:0px; right:0px; left:0px; bottom:0px;}
+#box .common_tools ul li span{ background:#636363; padding:0px 15px; position:absolute; line-height:47px; height:47px;
+ text-align:center;top:0px;left:-120px; text-align:center; font-size:14px; font-family:微软雅黑; color:#fff;
+ transition:all 300ms linear; opacity:0;}
+
+#box .common_tools ul li.c-q span{background:#636363; transition:all 300ms linear;/*动画*/ opacity:0; height:auto; padding:20px 16px 10px 23px; position:absolute;top:0px; left:-184px;}
+#box .common_tools ul li.c-q span img{display:block; width:104px; height:104px;}
+#box .common_tools ul li a span p{font-family:微软雅黑; font-size:14px; color:#fff; margin-top:10px;}
+ #box .common_tools ul li.c-q span i{top:20px;}
+#box .common_tools ul li span i{width:0px; height:0px; border-top:5px solid transparent; border-left:5px solid #636363;
+border-bottom:5px solid transparent; position:absolute; top:50%; right:-5px; margin-top:-5px;}
+#box .common_tools .common_tab2{position:absolute; right:0px; bottom:0px; width:40px;}
+#box .common_tools ul.common_tab2 li.c-s{background-position:-80px -94px;}
+#box .common_tools ul.common_tab2 li.c-d{background-position:-80px -47px;}
+#box .common_tools ul.common_tab2 li.c-t{background-position:-80px 0px;}
+#box .common_tools ul li:hover{background-color:#f60;}
+#box .common_tools ul li.c-q:hover span{left:-150px; opacity:1;}
+#box .common_tools ul li:hover span{left:-80px; opacity:1;}
+#box .common_tools ul li.c-q:hover{background-position:-40px -141px;/*背景图片*/}
+#box .common_tools ul li.c-p:hover{background-position:-40px -94px;}
+#box .common_tools ul li.c-k:hover{background-position:-40px -47px;}
+#box .common_tools ul li.c-f:hover{background-position:-40px 0px;}
+box .common_tools ul.common_tab2 li.c-s:hover{background-position:0px -141px;}
+#box .common_tools ul.common_tab2 li.c-d:hover{background-position:0px -94px;}
+#box .common_tools ul.common_tab2 li.c-t:hover{background-position:0px -47px;}
+#box .top:hover .show{display:block;}
+</style>
+</head>
+
+<body>
+<div id="box">
+    <div class="top">
+        <img src="10-31 大型企业内部技术--右侧悬浮菜单鼠标跟随特效/images/ssTPkr.jpg" />
+        <div class="show">
+        <img src="10-31 大型企业内部技术--右侧悬浮菜单鼠标跟随特效/images/ZsdbDe.jpg" />
+        </div>
+        
+    </div>
+    <div class="common_tools">
+    <ul>
+        <li class="c-q">
+            <a href="#">
+                <span>
+                <img src="10-31 大型企业内部技术--右侧悬浮菜单鼠标跟随特效/images/sys.png" />
+                <p>下载同程旅游APP</p>
+                <i></i>
+                </span>
+             </a>
+        </li>
+        <li class="c-p">
+             <a>
+               <span>我的同程
+                <i></i>
+                </span>
+              
+             </a>
+        </li>
+        <li class="c-k">
+              <a>
+               <span>我的订单
+                <i></i>
+                </span>
+             </a>
+        </li>
+        <li class="c-f">
+             <a>
+               <span>我的收藏
+                <i></i>
+                </span>
+             </a>
+        </li>
+    </ul>
+    <ul class="common_tab2">
+        <li class="c-s">
+              <a>
+               <span>意见反馈
+                <i></i>
+                </span>
+             </a>
+        </li>
+        <li class="c-d">
+              <a>
+               <span>在线客服
+                <i></i>
+                </span>
+             </a>
+        </li>
+        <li class="c-t">
+             <a>
+               <span>返回顶部
+                <i></i>
+                </span>
+             </a>
+        </li>
+    </ul>
+    </div>
+</div>
+</body>
+</html>
