@@ -1,0 +1,104 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>10-9楼梯式导航</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#head{width:1000px; height:500px; margin:0 auto; background:url("10-9楼梯式导航系统/10-9/images/head.png");}
+#con{width:1000px; margin:0 auto;}
+#con ul li{list-style:none; width:1000px; height:600px;}
+#nav{width:32px; background:#fff; position:fixed; top:150px; left:50px; border:1px solid #ddd; display:none;}
+#nav ul li{width:32px; height:32px; list-style:none; color:#666; line-height:32px; text-align:center;
+font-size:12px; border-bottom:1px solid #ddd; position:relative;}
+#nav ul li.last{background:red; color:#fff;}
+#nav ul li span{ position:absolute; top:0; left:0; width:32px; height:32px; display:none;}
+#nav ul li.hover span{color:#fff; background:red; display:block;}
+#nav ul li span.ys{color:#c00; display:block; background:#fff;}
+</style>
+</head>
+
+<body>
+<div id="head"></div>
+<div id="con">
+     <ul>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f2.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f2.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f3.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f4.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f5.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f6.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f7.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f8.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f9.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f10.png)"></li>
+         <li style="background:url(10-9楼梯式导航系统/10-9/images/f11.png)"></li>
+     </ul>
+</div>
+<div id="nav">
+    <ul>
+        <li>F1<span>服饰</span></li>
+        <li>F2<span>美妆</span></li>
+        <li>F3<span>手机</span></li>
+        <li>F4<span>家电</span></li>
+        <li>F5<span>数码</span></li>
+        <li>F6<span>运动</span></li>
+        <li>F7<span>居家</span></li>
+        <li>F8<span>母婴</span></li>
+        <li>F9<span>食品</span></li>
+        <li>F10<span>图书</span></li>
+        <li>F11<span>服务</span></li>
+        <li class="last">TOP</li>
+    </ul>
+</div>
+<script type="text/javascript" src="10-9楼梯式导航系统/10-9/js/jquery.js"></script>
+<script type="text/javascript">
+
+//鼠标移入事件
+    $("#nav ul li").not(".last").hover(function(){
+		$(this).addClass("hover");//给当前元素添加hover样式
+	},function(){
+		$(this).removeClass("hover");
+	});
+	//点击事件
+	$("#nav ul li").not(".last").click(function(){
+		k=2;
+		$("#nav ul li").find("span").removeClass("ys");
+		$(this).find("span").addClass("ys");
+		var _index=$(this).index();
+		var _top=$("#con ul li").eq(_index).offset().top;
+		$("body,html").animate({scrollTop:_top},500,function(){
+			k=1;
+		});
+	});
+	//窗体事件
+	var k=1;
+	$(window).scroll(function(){
+		if(k==1){
+		var _t=$(window).scrollTop();//获取滚动条高度
+		if(_t>500){
+			//让导航显示
+			$("#nav").fadeIn();
+		}else{
+			$("#nav").fadeOut();
+		}
+		var obj=$("#con ul li");
+		obj.each(function(){
+			var _index=$(this).index();
+			var _height=obj.eq(_index).offset().top+400;
+			if(_t<_height){
+				$("#nav ul li").find("span").removeClass("ys");
+				$("#nav ul li").eq(_index).find("span").addClass("ys");
+				return false;
+			}
+			
+		});
+		}
+     });
+	 $("#nav ul li.last").click(function(){
+		 $("html,body").animate({scrollTop:0},500);
+	 });
+</script>
+</body>
+</html>
