@@ -37,4 +37,6 @@ MusiPlay：音乐播放器
 
 TableSkin：右键单击，使桌面换肤
 
+QiXi:七夕节的动画效果
+
 
